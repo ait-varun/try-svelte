@@ -43,16 +43,3 @@
     </tr>
   </tbody>
 </table>
-
-<!-- async function fetchUser(id: string) {
-  const response = await fetch(`https://dummyjson.com/users/${id}`);
-  const data = await response.json();
-  return data;
-}
-
-async function load() {
-  let userId = $page.params.slug;
-  user = await fetchUser(userId);
-}
-
-onMount(load); -->
