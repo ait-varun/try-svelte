@@ -1,32 +1,22 @@
-<script>
-  import { blur } from "svelte/transition";
-  let condition = false;
-  let big = false;
-  let show = () => {
-    condition = !condition;
-  };
+<script lang="ts">
+  import { onMount } from "svelte";
+  import type { PageData } from "../$types";
+
+  export let data: PageData;
+  let posts: any;
+
+  onMount(async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    posts = await response.json();
+  });
 </script>
 
-<h1 class="text-color">About</h1>
-<h1>Green</h1>
-<button on:click={show} class="transition-button">See Transition</button>
-{#if condition}
-  <div transition:blur={{ amount: 10 }}>
-    fades in and out
-    <div class="new-tab"><p>New Tab</p></div>
-  </div>
+{#if posts}
+  <ul>
+    {#each posts as post}
+      <li><span class="px-4 py-2">{post.id}</span>{post.title}</li>
+    {/each}
+  </ul>
+{:else}
+  <p class="px-4 py-2">loading...</p>
 {/if}
-
-<div class="max-w-4xl mx-auto">
-  <button on:click={() => (big = !big)}>click</button>
-
-  <div class:big>
-    some {big ? "big" : "small"} text
-  </div>
-</div>
-
-<style>
-  .big {
-    font-size: 4em;
-  }
-</style>
