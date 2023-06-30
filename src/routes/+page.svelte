@@ -1,31 +1,12 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
-  import { users, fetchUsers } from "../blogStore";
+  import { fade } from "svelte/transition";
+  import type { PageData } from "./$types";
 
-  let searchTerm = "";
-  let filteredUsers = [] as any[];
-
-  $: {
-    if (searchTerm) {
-      filteredUsers = $users.filter((user: any) =>
-        user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    } else {
-      filteredUsers = [...$users];
-    }
-  }
-  onMount(async () => fetchUsers());
+  export let data: PageData;
+  export let users = data.users;
 </script>
 
-<div>
-  <input
-    class="w-full rounded-md text-lg p-2 border-2 border-gray-200"
-    bind:value={searchTerm}
-    placeholder="Search user"
-  />
-</div>
-<table class="w-full bg-gray-300" transition:fly={{ y: 20, duration: 1000 }}>
+<table class="w-full bg-gray-300" transition:fade>
   <thead>
     <tr>
       <th>ID</th>
@@ -36,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each filteredUsers as user}
+    {#each users as user}
       <tr class="bg-gray-100 hover:bg-gray-200">
         <td class="px-4 py-2 text-center">{user.id}</td>
         <td class="px-4 py-2 text-center">{user.firstName}</td>
