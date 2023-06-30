@@ -6,7 +6,7 @@
   export let user = data.user;
 </script>
 
-<table class="w-full">
+<table class="w-full bg-gray-300">
   <thead>
     <tr>
       <th>ID</th>
