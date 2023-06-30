@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { fade } from "svelte/transition";
   import type { PageData } from "./$types";
 
   export let data: PageData;
-  export let user = data.post.user;
+  export let user = data.user;
 </script>
 
 <table class="w-full">
