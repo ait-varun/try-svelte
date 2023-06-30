@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <title>Blogs</title>
+  <title>User Data</title>
 </svelte:head>
 <div>
   <slot />
