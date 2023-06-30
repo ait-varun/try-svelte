@@ -1,16 +1,31 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
+  import { users, fetchUsers } from "../blogStore";
 
-  let users = [] as any[];
-  onMount(async () => {
-    const response = await fetch("https://dummyjson.com/users");
-    const data = await response.json();
-    users = data.users;
-  });
+  let searchTerm = "";
+  let filteredUsers = [] as any[];
+
+  $: {
+    if (searchTerm) {
+      filteredUsers = $users.filter((user: any) =>
+        user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    } else {
+      filteredUsers = [...$users];
+    }
+  }
+  onMount(async () => fetchUsers());
 </script>
 
-<table class="w-full" transition:fly={{ y: 20, duration: 1000 }}>
+<div>
+  <input
+    class="w-full rounded-md text-lg p-2 border-2 border-gray-200"
+    bind:value={searchTerm}
+    placeholder="Search user"
+  />
+</div>
+<table class="w-full bg-gray-300" transition:fly={{ y: 20, duration: 1000 }}>
   <thead>
     <tr>
       <th>ID</th>
@@ -21,7 +36,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each users as user}
+    {#each filteredUsers as user}
       <tr class="bg-gray-100 hover:bg-gray-200">
         <td class="px-4 py-2 text-center">{user.id}</td>
         <td class="px-4 py-2 text-center">{user.firstName}</td>

@@ -6,6 +6,6 @@
 <svelte:head>
   <title>Blogs</title>
 </svelte:head>
-<div class="container mx-auto">
+<div>
   <slot />
 </div>
