@@ -1,8 +1,12 @@
 <script lang="ts">
+  // Import the fade function from the "svelte/transition" module
   import { fade } from "svelte/transition";
+  // Import the PageData type from the "./$types" module
   import type { PageData } from "./$types";
 
+  // Export the "data" variable as a prop with the type of PageData
   export let data: PageData;
+  // Export the "users" variable and assign it the value of "data.users"
   export let users = data.users;
 </script>
 
