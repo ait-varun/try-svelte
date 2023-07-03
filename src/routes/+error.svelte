@@ -65,11 +65,13 @@
     <div class="box__description-container">
       <div class="box__description-title">Whoops!</div>
       <div class="box__description-text">
-        It seems like we couldn't find the user you were looking for. {$page
+        It seems like we couldn't find the data you were looking for. {$page
           .error?.message}!
       </div>
     </div>
-
-    <a href="/" class="box__button">Go back</a>
+    <!-- link options : data-sveltekit-reload , data-sveltekit-preload , data-sveltekit-replace
+    state...will replace the current history entry rather than creating a new one
+    with pushState when the link is clicked.  -->
+    <a data-sveltekit-reload href="/" class="box__button">Go back</a>
   </div>
 </div>

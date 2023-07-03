@@ -13,6 +13,7 @@ export const load = (async ({ fetch, params }) => {
   if (!response.ok) {
     // Throwing an error with the status code and a custom message
     throw error(404, "This user is may not be on server");
+    // throw error(404, { message: "This user is may not be on server" });
   }
 
   // Parsing the response body as JSON and assigning it to the 'user' variable
