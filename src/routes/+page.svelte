@@ -1,13 +1,16 @@
 <script lang="ts">
-  // Import the fade function from the "svelte/transition" module
   import { fade } from "svelte/transition";
-  // Import the PageData type from the "./$types" module
   import type { PageData } from "./$types";
-
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
   // Export the "data" variable as a prop with the type of PageData
   export let data: PageData;
-  // Export the "users" variable and assign it the value of "data.users"
-  export let users = data.users;
+
+  // Create a store and update it when necessary...
+  const users = writable() as any;
+  $: users.set(data.users);
+  // ...and add it to the context for child components to access
+  setContext("users", users);
 </script>
 
 <table class="w-full bg-indigo-950 text-white" transition:fade>
@@ -21,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each users as user}
+    {#each $users as user}
       <tr class="bg-indigo-900/50 hover:bg-indigo-950">
         <td class="px-4 py-2 text-center">{user.id}</td>
         <td class="px-4 py-2 text-center">{user.firstName}</td>

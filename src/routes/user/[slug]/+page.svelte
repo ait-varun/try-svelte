@@ -1,12 +1,13 @@
 <script lang="ts">
-  // Import the PageData type from "./$types"
+  import { setContext } from "svelte";
   import type { PageData } from "./$types";
-
+  import { writable } from "svelte/store";
   // Declare a variable called data of type PageData
   export let data: PageData;
-
-  // Assign the value of data.user to the variable user
-  export let user = data.user;
+  const user = writable() as any;
+  $: user.set(data.user);
+  // ...and add it to the context for child components to access
+  setContext("user", user);
 </script>
 
 <table class="w-full bg-indigo-950 text-white">
@@ -23,18 +24,18 @@
   </thead>
   <tbody>
     <tr class="bg-indigo-900/50 hover:bg-indigo-950">
-      <td class="px-4 py-2 text-center">{user.id}</td>
-      <td class="px-4 py-2 text-center">{user.firstName}</td>
-      <td class="px-4 py-2 text-center">{user.birthDate}</td>
+      <td class="px-4 py-2 text-center">{$user.id}</td>
+      <td class="px-4 py-2 text-center">{$user.firstName}</td>
+      <td class="px-4 py-2 text-center">{$user.birthDate}</td>
       <td class="px-4 py-2 text-center"
-        >{user.address && user.address.address}</td
+        >{$user.address && $user.address.address}</td
       >
-      <td class="px-4 py-2 text-center">{user.company?.address.address}</td>
+      <td class="px-4 py-2 text-center">{$user.company?.address.address}</td>
       <td class="px-4 py-2 text-center"
-        >{user.company && user.company.department}</td
+        >{$user.company && $user.company.department}</td
       >
       <td class="text-center">
-        <img src={user.image} alt="" class="block mx-auto w-20 h-20" />
+        <img src={$user.image} alt="" class="block mx-auto w-20 h-20" />
       </td>
       <td class="px-4 py-2 text-center"><a href="/">All Users</a></td>
     </tr>
