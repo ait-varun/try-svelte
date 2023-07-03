@@ -9,7 +9,7 @@
   export let user = data.user;
 </script>
 
-<table class="w-full bg-gray-300">
+<table class="w-full bg-indigo-950 text-white">
   <thead>
     <tr>
       <th>ID</th>
@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="bg-gray-100 hover:bg-gray-200">
+    <tr class="bg-indigo-900/50 hover:bg-indigo-950">
       <td class="px-4 py-2 text-center">{user.id}</td>
       <td class="px-4 py-2 text-center">{user.firstName}</td>
       <td class="px-4 py-2 text-center">{user.birthDate}</td>
