@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { PageData } from "../$types";
+  // @ts-ignore
+  import { message } from "$lib/database";
 
-  export let data: PageData;
   let posts: any;
 
   onMount(async () => {
@@ -12,11 +12,19 @@
 </script>
 
 {#if posts}
-  <ul>
+  <ul class="px-4 py-2 bg-violet-900 text-white">
     {#each posts as post}
       <li><span class="px-4 py-2">{post.id}</span>{post.title}</li>
+      <li>
+        {message}
+        <a
+          href="/"
+          class="px-4 py-2 background-red-900 hover:backdrop-brightness-100"
+          >Go back</a
+        >
+      </li>
     {/each}
   </ul>
 {:else}
-  <p class="px-4 py-2">loading...</p>
+  <p class="px-4 py-2 text-white">loading...</p>
 {/if}

@@ -2,5 +2,10 @@
   "editor.wordWrap": "on",
   "editor.fontFamily": "Fira Code iScript",
   "editor.fontSize": 16,
-  "editor.indentSize": "tabSize"
+  "editor.indentSize": "tabSize",
+  "cSpell.words": [
+    "todoid",
+    "Todos",
+    "userid"
+  ]
 }
