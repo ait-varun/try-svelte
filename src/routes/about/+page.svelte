@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  // @ts-ignore
   import { message } from "$lib/database";
 
   let posts: any;

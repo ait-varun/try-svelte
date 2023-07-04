@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
 
+  // Reactive statement that updates 'path' whenever 'page.url.pathname' changes
   $: path = $page.url.pathname;
 </script>
 
@@ -17,6 +18,12 @@
           </li>
           <li class="sm:inline-block nav-btn" class:active={path === "/about"}>
             <a href="/about" class="p-3 hover:text-red-900">About</a>
+          </li>
+          <li
+            class="sm:inline-block nav-btn"
+            class:active={path === "/animation"}
+          >
+            <a href="/animation" class="p-3 hover:text-red-900">Animation</a>
           </li>
         </ul>
       </div>
