@@ -25,6 +25,12 @@
           >
             <a href="/animation" class="p-3 hover:text-red-900">Animation</a>
           </li>
+          <li
+            class="sm:inline-block nav-btn"
+            class:active={path === "/example"}
+          >
+            <a href="/example" class="p-3 hover:text-red-900">example</a>
+          </li>
         </ul>
       </div>
     </div>

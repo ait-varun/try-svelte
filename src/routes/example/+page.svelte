@@ -1,0 +1,60 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+  import { createClient } from "./../../generated";
+
+  let country: any = {};
+
+  onMount(async () => {
+    const client = createClient({
+      url: "https://countries.trevorblades.com",
+    });
+
+    const response = await client.query({
+      country: {
+        __args: {
+          code: "IN",
+        },
+        name: true,
+        native: true,
+        capital: true,
+        emoji: true,
+        currency: true,
+        languages: {
+          code: true,
+          name: true,
+        },
+      },
+    });
+
+    country = response.country;
+  });
+</script>
+
+<svelte:head>
+  <title>Country Data</title>
+</svelte:head>
+
+
+
+<div>
+  {#if Object.keys(country).length > 0}
+    <!-- check if 'country' object is not empty -->
+    <ul>
+      <li class="px-4 py-2 text-white">Name: {country.name}</li>
+      <li class="px-4 py-2 text-white">Native: {country.native}</li>
+      <li class="px-4 py-2 text-white">Capital: {country.capital}</li>
+      <li class="px-4 py-2 text-white">Emoji: {country.emoji}</li>
+      <li class="px-4 py-2 text-white">Currency: {country.currency}</li>
+      <li class="px-4 py-2 text-white">Languages:</li>
+      <ul>
+        {#each country.languages as language}
+          <!-- loop through the 'languages' array -->
+          <li class="px-8 py-2 text-white"> {language.name}</li>
+        {/each}
+      </ul>
+    </ul>
+  {:else}
+    <p class="px-4 py-2 text-white">Loading...</p>
+    <!-- display a loading message while the data is being fetched -->
+  {/if}
+</div>

@@ -7,6 +7,6 @@
   <title>User Data</title>
 </svelte:head>
 <div>
-  <!-- <Nav /> -->
+  <Nav />
   <slot />
 </div>
