@@ -1,8 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { createClient } from "./../../generated";
+  import type { Country } from "$lib/apiData";
 
-  let country: any = {};
+  let country: Country | null = null;
+  let isLoading = true;
 
   onMount(async () => {
     const client = createClient({
@@ -12,7 +14,7 @@
     const response = await client.query({
       country: {
         __args: {
-          code: "IN",
+          code: "BR",
         },
         name: true,
         native: true,
@@ -27,6 +29,8 @@
     });
 
     country = response.country;
+    isLoading = false; // Set isLoading to false after fetching the data
+    console.log(country)
   });
 </script>
 
@@ -34,10 +38,10 @@
   <title>Country Data</title>
 </svelte:head>
 
-
-
 <div>
-  {#if Object.keys(country).length > 0}
+  {#if isLoading}
+    <p class="px-4 py-2 text-white">Loading...</p>
+  {:else if country !== null && Object.keys(country).length > 0}
     <!-- check if 'country' object is not empty -->
     <ul>
       <li class="px-4 py-2 text-white">Name: {country.name}</li>
@@ -49,12 +53,13 @@
       <ul>
         {#each country.languages as language}
           <!-- loop through the 'languages' array -->
-          <li class="px-8 py-2 text-white"> {language.name}</li>
+          <li class="px-8 py-2 text-white">
+            {language.name} - {language.code}
+          </li>
         {/each}
       </ul>
     </ul>
   {:else}
-    <p class="px-4 py-2 text-white">Loading...</p>
-    <!-- display a loading message while the data is being fetched -->
+    <p class="px-4 py-2 text-white">NO DATA FOUND</p>
   {/if}
 </div>
