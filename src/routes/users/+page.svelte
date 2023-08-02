@@ -31,7 +31,7 @@ let isLoading = true;
     <ul>
       {#each users as user}
         <!-- loop through the 'users' array -->
-        <li class="px-4 py-2 text-white">{user.name} - {user.email}</li>
+        <li class="px-4 py-2 text-white">User name: {user.name} & Email: {user.email}</li>
         <!-- display each user's name and email -->
       {/each}
     </ul> 
