@@ -31,6 +31,12 @@
           >
             <a href="/example" class="p-3 hover:text-red-900">example</a>
           </li>
+               <li
+            class="sm:inline-block nav-btn"
+            class:active={path === "/users"}
+          >
+            <a href="/users" class="p-3 hover:text-red-900">users</a>
+          </li>
         </ul>
       </div>
     </div>
