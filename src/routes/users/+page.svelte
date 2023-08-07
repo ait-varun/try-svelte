@@ -1,16 +1,25 @@
+<script context="module" lang="ts">
+  export interface Users {
+    name: string | null;
+    email: string | null;
+  }
+</script>
+
 <script lang="ts">
   import { __users } from "./+page";
 
-  export let users:any = __users
+  export let users: (Users | null)[] | null = __users;
 </script>
 
 <div>
   <ul>
-    {#each users as user}
-      <li class="px-4 py-2 text-white">
-        User name: {user.name} & Email: {user.email}
-      </li>
-    {/each}
+    {#if users !== null && users.length > 0}
+      {#each users as user}
+        <li class="px-4 py-2 text-white">
+          User name: {user?.name} & Email: {user?.email}
+        </li>
+      {/each}
+    {/if}
   </ul>
 </div>
 

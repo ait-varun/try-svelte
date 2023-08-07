@@ -1,4 +1,3 @@
-import type { PageLoad } from "./$types";
 import { createClient } from "../../generated/users";
 
 const client = createClient({
