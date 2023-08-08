@@ -36,17 +36,15 @@
   </ul>
 </div> -->
 
-
-
 <script lang="ts">
   import { createClient } from "../../generated/films";
   import { onMount } from "svelte";
 
+  let allFilms: any;
+
   const client = createClient({
     url: "https://swapi-graphql.netlify.app/.netlify/functions/index",
   });
-
-  export let allFilms: any;
 
   async function fetchData() {
     const response = await client.query({
@@ -73,7 +71,7 @@
 
   onMount(fetchData);
 
-    function getSpeciesName(speciesConnection: any) {
+  function getSpeciesName(speciesConnection: any) {
     if (
       speciesConnection &&
       speciesConnection.species &&
@@ -85,13 +83,25 @@
     }
     return "";
   }
+
+  function getClassification(speciesConnection: any) {
+    if (
+      speciesConnection &&
+      speciesConnection.species &&
+      speciesConnection.species.length > 0
+    ) {
+      return speciesConnection.species[0].homeworld.name;
+    }
+    return "";
+  }
 </script>
+
 <svelte:head>
   <title>Star Wars- Movies</title>
 </svelte:head>
 <div>
- <h1 class="title-bar">Star Wars Movies</h1>
-  {#if typeof allFilms === 'undefined'}
+  <h1 class="title-bar">Star Wars Movies</h1>
+  {#if typeof allFilms === "undefined"}
     <p class="px-4 py-2 text-white title-data">Fetching Data...</p>
   {:else if allFilms !== null && allFilms.length > 0}
     <ul>
@@ -102,6 +112,7 @@
             <p>Directed By: {film?.director}</p>
             <p>Release Date: {film?.releaseDate}</p>
             <p>Species: {getSpeciesName(film?.speciesConnection)}</p>
+            <p>Homeworld: {getClassification(film?.speciesConnection)}</p>
           </div>
         </li>
       {/each}
