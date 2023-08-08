@@ -41,6 +41,10 @@
     setContext("posts", posts);
 </script>
 
+<svelte:head>
+  <title>User Data</title>
+</svelte:head>
+
 {#if data}
   <ul class="px-4 py-2 bg-violet-900 text-white">
     {#each $posts as post}

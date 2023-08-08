@@ -10,6 +10,9 @@
   setContext("user", user);
 </script>
 
+<svelte:head>
+  <title>User Data</title>
+</svelte:head>
 <table class="w-full bg-indigo-950 text-white">
   <thead>
     <tr>

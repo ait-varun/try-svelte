@@ -86,7 +86,9 @@
     return "";
   }
 </script>
-
+<svelte:head>
+  <title>Star Wars- Movies</title>
+</svelte:head>
 <div>
  <h1 class="title-bar">Star Wars Movies</h1>
   {#if typeof allFilms === 'undefined'}

@@ -25,6 +25,9 @@
     });
   }
 </script>
+<svelte:head>
+  <title>Animations</title>
+</svelte:head>
 
 <div class="grid">
   {#each { length: 8 } as _, id}
