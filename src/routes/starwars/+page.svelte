@@ -90,7 +90,7 @@
 <div>
  <h1 class="title-bar">Star Wars Movies</h1>
   {#if typeof allFilms === 'undefined'}
-    <p class="px-4 py-2 text-white">Fetching Data...</p>
+    <p class="px-4 py-2 text-white title-data">Fetching Data...</p>
   {:else if allFilms !== null && allFilms.length > 0}
     <ul>
       {#each allFilms as film, index}
