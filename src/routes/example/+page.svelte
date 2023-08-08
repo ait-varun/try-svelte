@@ -30,7 +30,6 @@
 
     country = response.country;
     isLoading = false; // Set isLoading to false after fetching the data
-    console.log(country)
   });
 </script>
 

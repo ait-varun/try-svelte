@@ -3,10 +3,14 @@
   import Nav from "../components/nav.svelte";
 </script>
 
+
 <svelte:head>
   <title>User Data</title>
 </svelte:head>
+
 <div>
-  <Nav />
+  <div class="sticky-navbar">
+    <Nav />
+  </div>
   <slot />
 </div>
