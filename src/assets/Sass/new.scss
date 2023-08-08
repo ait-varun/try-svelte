@@ -57,3 +57,33 @@ img {
   opacity: 1;
   translate: 0%;
 }
+
+// star wars
+
+.film-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #2f4b7f;
+  color: white;
+  border-radius: 5px;
+}
+
+.film-details {
+  margin-left: 20px;
+}
+
+.title-bar {
+  background-color: #204892;
+  color: white;
+  padding: 10px;
+  text-align: center;
+    border-radius: 52% 48% 51% 49% / 0% 0% 100% 100% 
+}
+
+// nav sticky
+
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
