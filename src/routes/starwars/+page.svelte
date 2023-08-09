@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
   import { __films } from "./+page";
 
   export let allFilms: any | null = __films?.films;
@@ -34,9 +34,9 @@
       {/each}
     {/if}
   </ul>
-</div> -->
+</div>
 
-<script lang="ts">
+<!-- <script lang="ts">
   import { createClient } from "../../generated/films";
   import { onMount } from "svelte";
 
@@ -120,4 +120,5 @@
   {:else}
     <p class="px-4 py-2 text-white">No data available.</p>
   {/if}
-</div>
+</div> -->
+

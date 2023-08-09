@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { createClient } from "./../../generated";
-  import type { Country } from "$lib/apiData";
 
   let country: Country | null = null;
   let isLoading = true;

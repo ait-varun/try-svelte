@@ -3,5 +3,8 @@
   "editor.fontFamily": "Fira Code iScript",
   "editor.fontSize": 16,
   "editor.indentSize": "tabSize",
-  "cSpell.words": ["gsap", "todoid", "Todos", "userid"]
+  "cSpell.words": ["gsap", "todoid", "Todos", "userid"],
+  "codeium.enableConfig": {
+    "*": true
+  }
 }
