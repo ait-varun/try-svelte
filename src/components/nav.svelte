@@ -29,13 +29,16 @@
             class="sm:inline-block nav-btn"
             class:active={path === "/example"}
           >
-            <a href="/example" class="p-3 hover:text-red-900">example</a>
+            <a href="/example" class="p-3 hover:text-red-900">Example</a>
           </li>
           <li class="sm:inline-block nav-btn" class:active={path === "/users"}>
-            <a href="/users" class="p-3 hover:text-red-900">users</a>
+            <a href="/users" class="p-3 hover:text-red-900">Users</a>
           </li>
            <li class="sm:inline-block nav-btn" class:active={path === "/starwars"}>
             <a href="/starwars" class="p-3 hover:text-red-900">Star wars</a>
+          </li>
+            <li class="sm:inline-block nav-btn" class:active={path === "/blogs"}>
+            <a href="/blogs" class="p-3 hover:text-red-900">Blogs</a>
           </li>
         </ul>
       </div>
