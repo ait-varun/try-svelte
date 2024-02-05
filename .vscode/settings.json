@@ -6,5 +6,7 @@
   "cSpell.words": ["gsap", "todoid", "Todos", "userid"],
   "codeium.enableConfig": {
     "*": true
-  }
+  },
+  "terminal.integrated.lineHeight": 1.2,
+  "editor.lineHeight": 1.3
 }
