@@ -26,10 +26,10 @@
   <tbody>
     {#each $users as user}
       <tr class="bg-indigo-900/50 hover:bg-indigo-950">
-        <td class="px-4 py-2 text-center">{user.id}</td>
-        <td class="px-4 py-2 text-center">{user.firstName}</td>
-        <td class="px-4 py-2 text-center">{user.lastName}</td>
-        <td class="px-4 py-2 text-center">{user.gender}</td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.id}</a></td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.firstName}</a></td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.lastName}</a></td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.gender}</a></td>
         <td class="px-4 py-2 text-center"
           ><a href="/user/{user.id}">View Detail</a></td
         >
