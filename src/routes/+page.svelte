@@ -20,7 +20,7 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Gender</th>
-      <th>View Detail</th>
+      <th>View Details</th>
     </tr>
   </thead>
   <tbody>
