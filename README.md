@@ -36,3 +36,17 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+
+## Genql
+
+To add api
+
+npm i -g @genql/cli
+
+<!-- generated/{name of api/anything} -->
+genql --endpoint https://api.mocki.io/v2/c4d7a195/graphql --output ./src/generated/users 
+
+## Headless WordPress GraphQL svelte kit
+
+https://www.okupter.com/blog/headless-wordpress-graphql-sveltekit

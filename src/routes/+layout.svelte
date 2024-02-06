@@ -3,9 +3,14 @@
   import Nav from "../components/nav.svelte";
 </script>
 
+
 <svelte:head>
-  <title>Blogs</title>
+  <title>User Data</title>
 </svelte:head>
-<div class="container mx-auto">
+
+<div>
+  <div class="sticky-navbar">
+    <Nav />
+  </div>
   <slot />
 </div>

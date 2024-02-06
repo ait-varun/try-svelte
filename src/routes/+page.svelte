@@ -1,32 +1,37 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
+  import { fade } from "svelte/transition";
+  import type { PageData } from "./$types";
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
+  // Export the "data" variable as a prop with the type of PageData
+  export let data: PageData;
 
-  let users = [] as any[];
-  onMount(async () => {
-    const response = await fetch("https://dummyjson.com/users");
-    const data = await response.json();
-    users = data.users;
-  });
+  // Create a store and update it when necessary...
+  const users = writable() as any;
+  $: users.set(data.users);
+  // ...and add it to the context for child components to access
+  setContext("users", users);
 </script>
-
-<table class="w-full" transition:fly={{ y: 20, duration: 1000 }}>
+<svelte:head>
+  <title>Home</title>
+</svelte:head>
+<table class="w-full bg-indigo-950 text-white" transition:fade>
   <thead>
     <tr>
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Gender</th>
-      <th>View Detail</th>
+      <th>View Details</th>
     </tr>
   </thead>
   <tbody>
-    {#each users as user}
-      <tr class="bg-gray-100 hover:bg-gray-200">
-        <td class="px-4 py-2 text-center">{user.id}</td>
-        <td class="px-4 py-2 text-center">{user.firstName}</td>
-        <td class="px-4 py-2 text-center">{user.lastName}</td>
-        <td class="px-4 py-2 text-center">{user.gender}</td>
+    {#each $users as user}
+      <tr class="bg-indigo-900/50 hover:bg-indigo-950">
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.id}</a></td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.firstName}</a></td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.lastName}</a></td>
+        <td class="px-4 py-2 text-center"><a href="/user/{user.id}">{user.gender}</a></td>
         <td class="px-4 py-2 text-center"
           ><a href="/user/{user.id}">View Detail</a></td
         >
