@@ -28,7 +28,6 @@
   <p class="px-4 py-2 text-white">loading...</p>
 {/if} -->
 
-
 <script lang="ts">
   import { message } from "$lib/database";
   import { setContext } from "svelte";
@@ -38,7 +37,7 @@
   export let data: PageData;
   const posts = writable() as any;
   $: posts.set(data.posts);
-    setContext("posts", posts);
+  setContext("posts", posts);
 </script>
 
 <svelte:head>
@@ -46,16 +45,13 @@
 </svelte:head>
 
 {#if data}
+  <h1>{message}</h1>
   <ul class="px-4 py-2 bg-violet-900 text-white">
     {#each $posts as post}
-      <li><span class="px-4 py-2">{post.id}</span>{post.title}</li>
-      <li>
-        {message}
-        <a
-          href="/"
-          class="px-4 py-2 background-red-900 hover:backdrop-brightness-100"
-          >Go back</a
-        >
+      <li class="flex justify-between">
+        <span class="px-4 py-2 text-left">{post.id}</span>
+        <h2>{post.title}</h2>
+        <a href="/" class="px-4 py-2 bg-cyan-800 hover:bg-amber-600">Go back</a>
       </li>
     {/each}
   </ul>
