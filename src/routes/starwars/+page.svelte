@@ -17,6 +17,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Star Wars</title>
+</svelte:head>
+
 <div>
   <h1 class="title-bar">Star Wars Movies</h1>
 

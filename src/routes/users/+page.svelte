@@ -11,6 +11,10 @@
   export let users: (Users | null)[] | null = __users;
 </script>
 
+<svelte:head>
+  <title>Users</title>
+</svelte:head>
+
 <div>
   <ul>
     {#if users !== null && users.length > 0}

@@ -46,3 +46,7 @@ npm i -g @genql/cli
 
 <!-- generated/{name of api/anything} -->
 genql --endpoint https://api.mocki.io/v2/c4d7a195/graphql --output ./src/generated/users 
+
+## Headless WordPress GraphQL svelte kit
+
+https://www.okupter.com/blog/headless-wordpress-graphql-sveltekit

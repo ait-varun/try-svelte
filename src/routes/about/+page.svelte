@@ -42,7 +42,7 @@
 </script>
 
 <svelte:head>
-  <title>User Data</title>
+  <title>About</title>
 </svelte:head>
 
 {#if data}

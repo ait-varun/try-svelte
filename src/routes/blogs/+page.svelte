@@ -238,6 +238,10 @@ const loadMore = () => {
   }
 </script>
 
+<svelte:head>
+  <title>Blogs</title>
+</svelte:head>
+
 <div>
   <ul>
     {#if blogs !== null && blogs.length > 0}

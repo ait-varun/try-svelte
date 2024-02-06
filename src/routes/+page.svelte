@@ -12,7 +12,9 @@
   // ...and add it to the context for child components to access
   setContext("users", users);
 </script>
-
+<svelte:head>
+  <title>Home</title>
+</svelte:head>
 <table class="w-full bg-indigo-950 text-white" transition:fade>
   <thead>
     <tr>

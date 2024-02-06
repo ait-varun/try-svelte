@@ -9,7 +9,6 @@
   <div class="container mx-auto">
     <div class="sm:flex">
       <a href="/" class="text-white text-3xl font-bold p-3">APP LOGO</a>
-
       <!-- Menus -->
       <div class="ml-55 mt-4">
         <ul class="text-white sm:self-center text-xl">
