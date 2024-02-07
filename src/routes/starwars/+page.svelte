@@ -1,46 +1,5 @@
+
 <script lang="ts">
-  import { __films } from "./+page";
-
-  export let allFilms: any | null = __films?.films;
-
-  function getSpeciesName(speciesConnection: any) {
-    if (
-      speciesConnection &&
-      speciesConnection.species &&
-      speciesConnection.species.length > 0
-    ) {
-      return speciesConnection.species
-        .map((species: any) => species.name)
-        .join(", ");
-    }
-    return "";
-  }
-</script>
-
-<svelte:head>
-  <title>Star Wars</title>
-</svelte:head>
-
-<div>
-  <h1 class="title-bar">Star Wars Movies</h1>
-
-  <ul>
-    {#if allFilms !== null && allFilms.length > 0}
-      {#each allFilms as film, index}
-        <li class="film-item">
-          <div class="film-details">
-            <p>{index + 1}: {film?.title}</p>
-            <p>Directed By: {film?.director}</p>
-            <p>Release Date: {film?.releaseDate}</p>
-            <p>Species: {getSpeciesName(film?.speciesConnection)}</p>
-          </div>
-        </li>
-      {/each}
-    {/if}
-  </ul>
-</div>
-
-<!-- <script lang="ts">
   import { createClient } from "../../generated/films";
   import { onMount } from "svelte";
 
@@ -124,5 +83,5 @@
   {:else}
     <p class="px-4 py-2 text-white">No data available.</p>
   {/if}
-</div> -->
+</div>
 
